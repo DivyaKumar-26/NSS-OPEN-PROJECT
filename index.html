@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NSS JEE Cell IIT Roorkee provides a reliable test platform to help JEE aspirants prepare effectively.">
+    <meta name="keywords" content="JEE, IIT Roorkee, Test Platform, NSS, Preparation, Exam">
+    <meta name="author" content="NSS JEE Cell, IIT Roorkee">
+    <title>NSS JEE Test Platform</title>
+    
+  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+ 
+  
+
+</head>
+<body>
+ 
+    <header class="header">
+        <div class="hamburger" id="hamburger" aria-label="Menu Toggle" aria-expanded="false">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <a href="index.html" alt="homepage"><div class="logtext">
+            <div class="logo-text-container">
+             
+                <img src="image.png" alt="NSS JEE Cell Logo" class="logo-img" aria-label="NSS JEE Cell Logo">
+            </div>
+     
+       
+            <div id="header" class="header-text">
+                <span class="small-text">NSS JEE CELL<br>IIT ROORKEE</span>
+            </div>
+        </div></a>
+        
+        <!-- Navigation Links -->
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="join.html">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section id="welcome" class="welcome-section">
+    <div class="welcome-container">
+        <h1>Welcome to the NSS JEE Test Platform</h1>
+        <p>Your journey towards cracking the JEE exams starts here! We provide an intuitive platform for you to practice, track your progress, and improve your performance with realistic mock tests.</p>
+        <p>Explore our features and take your preparation to the next level!</p>
+    </div>
+</section>
+
+    
+    <!-- Main Content Section -->
+    <main><div class="bgw">
+        <section id="features">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Realistic Test Interface</h3>
+                    <p>Mimic real exam environment and get comfortable for the actual exam.</p>
+                </div>
+                <div class="feature">
+                    <h3>Detailed Performance Analysis</h3>
+                    <p>Track your progress with insightful charts and question-wise performance data.</p>
+                </div>
+                <div class="feature">
+                    <h3>Test History & Bookmarks</h3>
+                    <p>Access previous tests, answer keys, and important bookmarked questions.</p>
+                </div>
+            </div>
+        </section></div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <!-- NSS JEE CELL Description -->
+            <div class="footer-section about">
+                <h3>NSS JEE Cell, IIT Roorkee</h3>
+                <p>At NSS JEE, we aim to provide JEE aspirants with a reliable platform that enhances their exam preparation. Our focus is on offering intuitive tools, realistic test environments, and valuable insights. We strive to simplify the learning process and help students track their progress. Our goal is to empower every aspirant to achieve their full potential and succeed.</p>
+            </div>
+        
+            <!-- Contact Us Section -->
+            <div class="footer-section contact-us">
+                <div class="contact-left">
+                    <h3>Contact Us</h3>
+                    <p class="contact-info">
+                        NSS Office,<br>
+                        2nd floor, Multi Activity Centre, IIT Roorkee,<br>
+                        Roorkee-247667 Uttarakhand, IN
+                    </p>
+                </div>
+                <div class="contact-right">
+                    <p>
+                        <button class="contact-btn" id="copyEmail" onclick="copyText('nss@iitr.ac.in')">nss@iitr.ac.in</button><br>
+                        <button class="contact-btn" id="copyPhone" onclick="copyText('+91-7061339843')">+91-7061339843</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            &copy; 2025 NSS JEE Cell, IIT Roorkee. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const closeBtn = document.createElement('span');
+        
+        closeBtn.classList.add('close-btn');
+        closeBtn.innerText = 'X';
+        
+        // Add close button when the menu is open
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.add('active');
+            document.body.classList.add('no-scroll');
+            navLinks.appendChild(closeBtn); // Add the close button inside the menu
+        });
+        
+        // Close menu when close button is clicked
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            navLinks.removeChild(closeBtn); // Remove the close button when menu is closed
+        });
+        
+    
+        
+
+    </script>
+</body>
+</html>

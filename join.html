@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up page for NSS JEE Cell IIT Roorkee.">
+    <meta name="keywords" content="JEE, IIT Roorkee, Sign Up, NSS">
+    <meta name="author" content="NSS JEE Cell, IIT Roorkee">
+    <title>Sign Up - NSS JEE Test Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 20px;
+            background: #0a1f44;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .logtext {
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-text-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0A1F44;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .header-text {
+            margin-left: 15px;
+            font-size: 18px;
+        }
+
+        .login-page {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .login-container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .welcome-section {
+            flex: 1;
+            padding: 40px;
+            background-color: #e8e8e8;
+            color: #0a1f44;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .signup-form-section {
+            flex: 1;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        p {
+            margin: 10px 0 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #e65b53;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .login-container {
+                flex-wrap: wrap;
+            }
+
+            .welcome-section, .signup-form-section {
+                flex: 1 1 100%;
+                padding: 20px;
+            }
+
+            .welcome-section {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            input, .btn-primary {
+                font-size: 14px;
+            }
+        }
+
+        /* Forgot Password Link Styling */
+        .signup-form-section a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-form-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" alt="homepage">
+            <div class="logtext">
+                <div class="logo-text-container">
+                    <img src="image.png" alt="NSS JEE Cell Logo" class="logo-img">
+                </div>
+                <div id="header" class="header-text">
+                    <span class="small-text">NSS JEE CELL<br>IIT ROORKEE</span>
+                </div>
+            </div>
+        </a>
+    </header>
+
+    <main class="login-page">
+        <div class="login-container">
+            <div class="welcome-section" style="background-image: none;">
+                <h1>Join Us Today!</h1>
+                <p>JOin us today and take the first step towards achieving your JEE goals. Our platform is designed to provide you with the best resources for your preparation journey.</p>
+            </div>
+            <div class="signup-form-section">
+                <h2 style="text-align: center; margin-bottom: 10px; color: #0A1F44;">Create an Account</h2>
+                <form action="#" method="POST">
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+                    <button type="submit" class="btn-primary">Sign Up</button>
+                    <p style="text-align: center;"><a href="login.html" style="color: #ff6f61; text-decoration: none; font-weight: bold;">Already have an account? Log In</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>NSS JEE Cell, IIT Roorkee</h3>
+                <p>At NSS JEE, we aim to provide JEE aspirants with a reliable platform that enhances their exam preparation. Our focus is on offering intuitive tools, realistic test environments, and valuable insights. We strive to simplify the learning process and help students track their progress. Our goal is to empower every aspirant to achieve their full potential and succeed.</p>
+            </div>
+
+            <div class="footer-section contact-us">
+                <div class="contact-left">
+                    <h3>Contact Us</h3>
+                    <p class="contact-info">
+                        NSS Office,<br>
+                        2nd floor, Multi Activity Centre, IIT Roorkee,<br>
+                        Roorkee-247667 Uttarakhand, IN
+                    </p>
+                </div>
+                <div class="contact-right">
+                    <p>
+                        <button class="contact-btn" id="copyEmail" onclick="copyText('nss@iitr.ac.in')">nss@iitr.ac.in</button><br>
+                        <button class="contact-btn" id="copyPhone" onclick="copyText('+91-7061339843')">+91-7061339843</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 NSS JEE Cell, IIT Roorkee. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

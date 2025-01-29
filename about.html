@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NSS JEE Cell, IIT Roorkee offers guidance, doubt support, and comprehensive test series for JEE aspirants.">
+    <meta name="keywords" content="JEE, IIT Roorkee, Test Platform, NSS, Preparation, Pragati Test Series, Abhyas Test Series">
+    <meta name="author" content="NSS JEE Cell, IIT Roorkee">
+    <title>About Us | NSS JEE Test Platform</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Reset and Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+/* Header Styling */
+.logo-img {
+    width: 40px;
+    height: auto;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    background-color: #16a085;
+}
+
+/* About Section */
+.about-section {
+    background-color: white;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+/* Services Section */
+.services {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    flex-basis: 30%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-item h3 {
+    color: #16a085;
+}
+
+.service-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-item ul li {
+    margin-bottom: 8px;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.why-choose-us .service-item {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    flex-basis: 45%; /* Adjusted flex-basis for 2 items per row */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.why-choose-us .service-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.why-choose-us .service-item h3 {
+    color: #16a085;
+}
+
+.why-choose-us .service-item p {
+    font-size: 1.1em;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .services, .why-choose-us {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .service-item {
+        flex-basis: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="hamburger" id="hamburger" aria-label="Menu Toggle" aria-expanded="false">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <a href="index.html" alt="homepage"><div class="logtext">
+            <div class="logo-text-container">
+                <img src="image.png" alt="NSS JEE Cell Logo" class="logo-img" aria-label="NSS JEE Cell Logo">
+            </div>
+            <div id="header" class="header-text">
+                <span class="small-text">NSS JEE CELL<br>IIT ROORKEE</span>
+            </div>
+        </div></a>
+        
+        <!-- Navigation Links -->
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="join.html">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <div class="about-container">
+            <h1>About NSS JEE Cell</h1>
+            <p class="intro-text">The NSS JEE Cell at IIT Roorkee is committed to providing a comprehensive platform for JEE aspirants. We offer expert guidance, doubt-solving support, and a variety of test series to ensure every student’s success in the highly competitive JEE exam.</p>
+            
+            <h2>Our Services</h2>
+            <p>We offer a range of services tailored to meet the needs of JEE aspirants:</p><br>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Guidance Sessions</h3>
+                    <p>We provide expert guidance to help students navigate the complexities of JEE preparation. Our sessions cover key concepts, time management tips, and effective study strategies.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Doubt Support</h3>
+                    <p>Our team is available around the clock to solve your doubts, ensuring that no question goes unanswered and that students are clear on every concept.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Test Series</h3>
+                    <p>We offer two comprehensive test series designed to evaluate your preparation:</p>
+                    <ul>
+                        <li><strong>Pragati Test Series:</strong> A series of mock exams resembling the JEE pattern, helping students gauge their performance and improve.</li>
+                        <li><strong>Abhyas Test Series:</strong> A set of practice tests based on previous years' JEE papers to hone exam-taking skills and time management.</li>
+                    </ul>
+                </div>
+            </div><br>
+
+            <h2>Why Choose Us?</h2>
+            <p>Our approach is student-centered, focusing on holistic preparation. Here's why you should choose NSS JEE Cell:</p>
+            <div class="why-choose-us">
+                <div class="service-item">
+                    <h3>Expert Mentors</h3>
+                    <p>Our team consists of experienced mentors who guide you through every step of your preparation.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Comprehensive Resources</h3>
+                    <p>Access a range of resources, from test series to guidance, designed for optimal learning.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Personalized Approach</h3>
+                    <p>We understand that each student has unique needs, so we tailor our support to fit your learning style and pace.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Proven Track Record</h3>
+                    <p>Our test series and mentorship have helped countless students perform exceptionally well in the JEE exams.</p>
+                </div>
+            </div>
+
+            <h2>Join Us Today!</h2>
+            <p>Ready to take your JEE preparation to the next level? Join NSS JEE Cell now and become part of a supportive community dedicated to your success!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <!-- NSS JEE CELL Description -->
+            <div class="footer-section about">
+                <h3>NSS JEE Cell, IIT Roorkee</h3>
+                <p>At NSS JEE, we aim to provide JEE aspirants with a reliable platform that enhances their exam preparation. Our focus is on offering intuitive tools, realistic test environments, and valuable insights. We strive to simplify the learning process and help students track their progress. Our goal is to empower every aspirant to achieve their full potential and succeed.</p>
+            </div>
+        
+            <!-- Contact Us Section -->
+            <div class="footer-section contact-us">
+                <div class="contact-left">
+                    <h3>Contact Us</h3>
+                    <p class="contact-info">
+                        NSS Office,<br>
+                        2nd floor, Multi Activity Centre, IIT Roorkee,<br>
+                        Roorkee-247667 Uttarakhand, IN
+                    </p>
+                </div>
+                <div class="contact-right">
+                    <p>
+                        <button class="contact-btn" id="copyEmail" onclick="copyText('nss@iitr.ac.in')">nss@iitr.ac.in</button><br>
+                        <button class="contact-btn" id="copyPhone" onclick="copyText('+91-7061339843')">+91-7061339843</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            &copy; 2025 NSS JEE Cell, IIT Roorkee. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const closeBtn = document.createElement('span');
+        
+        closeBtn.classList.add('close-btn');
+        closeBtn.innerText = 'X';
+        
+        // Add close button when the menu is open
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.add('active');
+            document.body.classList.add('no-scroll');
+            navLinks.appendChild(closeBtn); // Add the close button inside the menu
+        });
+        
+        // Close menu when close button is clicked
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            navLinks.removeChild(closeBtn); // Remove the close button when menu is closed
+        });
+    </script>
+</body>
+</html>
