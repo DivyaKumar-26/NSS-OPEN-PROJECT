@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f0f4f8; }
+        .sidebar { width: 260px; background-color: #1e293b; height: 100vh; color: #fff; position: fixed; box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); }
+        .sidebar h2 { padding: 24px; font-size: 1.6rem; border-bottom: 1px solid #3b82f6; text-align: center; }
+        .sidebar ul { list-style-type: none; padding: 0; }
+        .sidebar ul li { padding: 20px; border-bottom: 1px solid #3b82f6; cursor: pointer; transition: background-color 0.3s ease; text-align: center; font-weight: 600; }
+        .sidebar ul li:hover { background-color: #2563eb; }
+        .content { margin-left: 260px; padding: 40px; }
+        .section { display: none; }
+        .active { display: block; }
+        h1 { font-size: 2.2rem; margin-bottom: 20px; color: #1e293b; font-weight: 700; }
+        .card { background-color: #ffffff; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .card h2 { font-size: 1.8rem; margin-bottom: 15px; color: #2563eb; }
+        .card p { margin-bottom: 10px; color: #475569; }
+        input[type="text"], input[type="file"], input[type="date"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #e5e7eb; border-radius: 5px; }
+        input[type="submit"] { background-color: #2563eb; color: #ffffff; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
+        input[type="submit"]:hover { background-color: #1d4ed8; }
+        ul { list-style-type: none; padding: 0; }
+        ul li { padding: 10px 0; }
+        .button-view { background-color: #34d399; color: #ffffff; padding: 5px 10px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
+        .button-view:hover { background-color: #10b981; }
+        /* Test Management Section Styles */
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    color: #2563eb;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card p {
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+form label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+form input[type="text"],
+form input[type="file"],
+form input[type="date"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+    background-color: #f9fafb;
+}
+
+form input[type="button"],
+form input[type="submit"] {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="button"]:hover,
+form input[type="submit"]:hover {
+    background-color: #1d4ed8;
+}
+
+#question-container h3 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-top: 20px;
+}
+
+#question-container label {
+    color: #374151;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#question-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+}
+
+#question-container input[type="text"] {
+    background-color: #f9fafb;
+}
+
+#question-container h3 {
+    font-weight: 600;
+}
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li onclick="showSection('user-management')">User Management</li>
+            <li onclick="showSection('test-management')">Test Management</li>
+            <li onclick="showSection('results')">Results</li>
+            <li onclick="showSection('settings')">Settings</li>
+        </ul>
+    </div>
+    <div class="content">
+        <!-- User Management Section -->
+        <div id="user-management" class="section active">
+            <h1>User Management</h1>
+            <div class="card">
+                <h2>Manage Users</h2>
+                <p>Add, remove, and edit users, and assign roles.</p>
+            </div>
+        </div>
+
+        <!-- Test Management Section -->
+        <div id="test-management" class="section">
+            <h1>Test Management</h1>
+            <div class="card">
+                <h2>Create New Test</h2>
+               
+                <form id="test-form">
+                 
+                    <input type="text" id="test-name" name="test-name" placeholder="Test Name"><br><br>
+                    
+                    <!-- Topic and Section Selection -->
+                    <label for="test-topic">Select Topic:</label><br>
+                    <select id="test-topic" name="test-topic">
+                        <option value="Physics">Physics</option>
+                        <option value="Math">Math</option>
+                        <option value="Chemistry">Chemistry</option>
+                    </select><br><br>
+                    
+                    <label for="test-section">Select Section:</label><br>
+                    <select id="test-section" name="test-section">
+                        <option value="MCQ">MCQs</option>
+                        <option value="Numerical">Numericals</option>
+                    </select><br><br>
+        
+                    <!-- Number of Questions -->
+                    <label for="num-questions">Number of Questions:</label><br>
+                    <input type="number" id="num-questions" name="num-questions" min="1" placeholder="Enter the number of questions"><br><br>
+                    
+                    <input type="button" value="Add Questions" onclick="generateQuestionFields()"><br><br>
+        
+                    <!-- Container for adding questions -->
+                    <div id="question-container"></div>
+        
+                    <input type="submit" value="Submit Test">
+                </form>
+            </div>
+        </div>
+        
+            <div class="card">
+                <h2>Upcoming Tests Calendar</h2>
+                <p>View and manage the schedule for upcoming tests with syllabus reminders.</p>
+                <div>
+                    <input type="date" id="upcoming-test" name="upcoming-test">
+                    <input type="text" id="test-detail" name="test-detail" placeholder="Enter test details">
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="section">
+            <h1>Results</h1>
+            <div class="card">
+                <h2>Performance Analysis</h2>
+                <p>View subject-wise marks, time spent per question, and topic-wise insights. Graphs and charts are available for detailed analysis.</p>
+                <canvas id="performanceChart" width="400" height="200"></canvas>
+                <script>
+                    var ctx = document.getElementById('performanceChart').getContext('2d');
+                    var performanceChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Math', 'Physics', 'Chemistry'],
+                            datasets: [{
+                                label: 'Performance (Marks)',
+                                data: [80, 90, 85],
+                                backgroundColor: ['#f87171', '#60a5fa', '#34d399']
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <div class="card">
+                <h2>Test History & Bookmarks</h2>
+                <p>Access past tests, answer keys, and bookmarked PYQs for review and improvement.</p>
+                <ul>
+                    <li>Test 1 - <span class="button-view">View</span></li>
+                    <li>Test 2 - <span class="button-view">View</span></li>
+                    <li>Test 3 - <span class="button-view">View</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="section">
+            <h1>Settings</h1>
+            <div class="card">
+                <h2>Platform Settings</h2>
+                <p>Configure general platform settings, notifications, and preferences.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+        // Function to dynamically generate question fields based on number of questions input
+// Function to dynamically generate question fields based on number of questions input
+function generateQuestionFields() {
+    const numQuestions = document.getElementById('num-questions').value;
+    const questionContainer = document.getElementById('question-container');
+    
+    // Clear previous fields
+    questionContainer.innerHTML = '';
+
+    // Add fields for each question, its corresponding answer, and file upload for both question and answer
+    for (let i = 1; i <= numQuestions; i++) {
+        questionContainer.innerHTML += `
+            <h3>Question ${i}</h3>
+            
+            <!-- Question Text -->
+            <input type="text" id="question-${i}" name="question-${i}" placeholder="Enter the question"><br><br>
+            
+            <!-- File Upload for Question -->
+            <label for="question-file-${i}">Upload File for Question (Optional):</label><br>
+            <input type="file" id="question-file-${i}" name="question-file-${i}"><br><br>
+            
+            <!-- Answer Text -->
+            <input type="text" id="answer-${i}" name="answer-${i}" placeholder="Enter the answer"><br><br>
+            
+            <!-- File Upload for Answer -->
+            <label for="answer-file-${i}">Upload File for Answer (Optional):</label><br>
+            <input type="file" id="answer-file-${i}" name="answer-file-${i}"><br><br>
+        `;
+    }
+}
+
+
+// Form submission handler (replace this with backend functionality as needed)
+document.getElementById('test-form').onsubmit = function(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    // Here you can process the form data, e.g., send it to the backend
+    console.log('Test Name:', formData.get('test-name'));
+    console.log('Topic:', formData.get('test-topic'));
+    console.log('Section:', formData.get('test-section'));
+    
+    const numQuestions = formData.get('num-questions');
+    for (let i = 1; i <= numQuestions; i++) {
+        console.log('Question', i, ':', formData.get(`question-${i}`));
+        console.log('Answer', i, ':', formData.get(`answer-${i}`));
+    }
+    
+    // Clear form after submission
+    this.reset();
+    document.getElementById('question-container').innerHTML = '';
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .score-card {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #21262d;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #30363d;
+        }
+        th {
+            background-color: #21262d;
+        }
+        .time-container {
+            margin-top: 20px;
+            background: #21262d;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .chart-container {
+            margin-top: 40px;
+            height: 400px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>JEE Main 2024 - Performance Analysis</h2>
+        
+        <div class="score-card">
+            <p><strong>Expected Percentile:</strong> 97 - 97.5%</p>
+            <p><strong>Score:</strong> 201/300</p>
+            <p><strong>Accuracy:</strong> 82%</p>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Correct</th>
+                <th>Incorrect</th>
+                <th>Unattempted</th>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>55/100</td>
+                <td>16</td>
+                <td>9</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Chemistry</td>
+                <td>61/100</td>
+                <td>17</td>
+                <td>7</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Mathematics</td>
+                <td>63/100</td>
+                <td>16</td>
+                <td>1</td>
+                <td>13</td>
+            </tr>
+        </table>
+
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <canvas id="performanceChart"></canvas>
+        </div>
+        
+        <div class="time-container">
+            <h3>Time Taken Per Question (seconds)</h3>
+            <table>
+                <tr>
+                    <th>Question</th>
+                    <th>Time Taken (s)</th>
+                </tr>
+                <tr><td>Q1</td><td>45</td></tr>
+                <tr><td>Q2</td><td>30</td></tr>
+                <tr><td>Q3</td><td>60</td></tr>
+                <tr><td>Q4</td><td>25</td></tr>
+                <tr><td>Q5</td><td>50</td></tr>
+                <tr><td>Q6</td><td>40</td></tr>
+                <tr><td>Q7</td><td>55</td></tr>
+                <tr><td>Q8</td><td>35</td></tr>
+                <tr><td>Q9</td><td>20</td></tr>
+                <tr><td>Q10</td><td>15</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Data for the bar graph
+        const data = {
+            labels: ['Physics', 'Chemistry', 'Mathematics'],
+            datasets: [{
+                label: 'Correct',
+                data: [16, 17, 16],
+                backgroundColor: '#4CAF50',
+                borderColor: '#388E3C',
+                borderWidth: 1
+            }, {
+                label: 'Incorrect',
+                data: [9, 7, 1],
+                backgroundColor: '#F44336',
+                borderColor: '#D32F2F',
+                borderWidth: 1
+            }, {
+                label: 'Unattempted',
+                data: [5, 6, 13],
+                backgroundColor: '#FFC107',
+                borderColor: '#FF9800',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration for the chart
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.dataset.label + ': ' + tooltipItem.raw;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Create the bar chart
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>
